@@ -1,0 +1,37 @@
+$stbui-divider-width: 1px;
+$stbui-divider-inset-margin: 80px;
+
+// This mixin provides the correct offset for an inset divider based on the
+// size of the parent class (e.g. avatar vs icon)
+@mixin stbui-inset-divider-offset($offset, $padding) {
+  $stbui-inset-divider-offset: #{(2 * $padding) + $offset};
+  margin-left: $stbui-inset-divider-offset;
+  width: calc(100% - #{$stbui-inset-divider-offset});
+
+  [dir='rtl'] & {
+    margin-left: auto;
+    margin-right: $stbui-inset-divider-offset;
+  }
+}
+
+.stbui-divider {
+  display: block;
+  margin: 0;
+  border-top-width: $stbui-divider-width;
+  border-top-style: solid;
+  border-top-color: rgba(0,0,0,.12);
+
+  &.stbui-divider-vertical {
+    border-top: 0;
+    border-right-width: $stbui-divider-width;
+    border-right-style: solid;
+  }
+
+  &.stbui-divider-inset {
+    margin-left: $stbui-divider-inset-margin;
+    [dir='rtl'] & {
+      margin-left: auto;
+      margin-right: $stbui-divider-inset-margin;
+    }
+  }
+}

@@ -6,5 +6,15 @@
 
 ```
 import React from 'react'
-import {Button} from 'stbui'
+import { Button } from 'stbui'
+```
+
+# npm
+
+```
+npm run start
+```
+
+```
+npm run build
 ```

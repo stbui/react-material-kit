@@ -1,0 +1,40 @@
+$drawer-prefix-cls: 'stbui-drawer';
+
+.#{$drawer-prefix-cls} {
+  transition-duration: 0.3s;
+  transition-property: transform;
+
+  background: #fff;
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14),
+    0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.4);
+
+  &-fixed {
+    bottom: 0;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    width: 256px;
+    transform: translate3d(-256px, 0, 0);
+  }
+
+  &-inline {
+    display: inline-block;
+    height: 100%;
+  }
+
+  &-left {
+    left: 0;
+  }
+
+  &-right {
+    right: 0;
+  }
+
+  &-active {
+    transform: translate3d(0, 0, 0);
+  }
+
+  &-mini {
+    z-index: 10 - 1;
+  }
+}

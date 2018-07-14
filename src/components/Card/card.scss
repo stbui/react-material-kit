@@ -1,0 +1,274 @@
+@import '../core/style/variables';
+@import '../core/style/elevation';
+
+@import '../core/style/variables';
+@import '../core/style/elevation';
+
+$stbui-card-default-padding: 24px !default;
+$stbui-card-mobile-padding: 24px 16px !default;
+$stbui-card-border-radius: 2px !default;
+$stbui-card-header-size: 40px !default;
+
+.stbui-card {
+  @include stbui-elevation-transition;
+  @include stbui-overridable-elevation(2);
+  display: block;
+  position: relative;
+  padding: $stbui-card-default-padding;
+  border-radius: $stbui-card-border-radius;
+
+  .stbui-divider-horizontal {
+    position: absolute;
+    left: 0;
+    width: 100%;
+
+    [dir='rtl'] & {
+      left: auto;
+      right: 0;
+    }
+
+    &.stbui-divider-inset {
+      position: static;
+      margin: 0;
+    }
+  }
+
+  // Needs extra specificity to be able to override the elevation selectors.
+  &.stbui-card-flat {
+    box-shadow: none;
+  }
+
+  // @include cdk-high-contrast {
+  //   outline: solid 1px;
+  // }
+}
+
+// base styles for each card section preset (stbui-card-content, etc)
+%stbui-card-section-base {
+  display: block;
+  margin-bottom: 16px;
+}
+
+.stbui-card-title,
+.stbui-card-subtitle,
+.stbui-card-content {
+  @extend %stbui-card-section-base;
+}
+
+.stbui-card-actions {
+  @extend %stbui-card-section-base;
+  margin-left: -16px;
+  margin-right: -16px;
+  padding: 8px 0;
+}
+
+.stbui-card-actions-align-end {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.stbui-card-image {
+  width: calc(100% + 48px);
+  margin: 0 -24px 16px -24px;
+}
+
+.stbui-card-xl-image {
+  width: 240px;
+  height: 240px;
+  margin: -8px;
+}
+
+.stbui-card-footer {
+  // The negative margins pulls out the element, countering the padding
+  // to get the footer to be flush against the side of the card.
+  $margin: -$stbui-card-default-padding;
+
+  display: block;
+  margin: 0 $margin $margin $margin;
+}
+
+.stbui-card-actions {
+  .stbui-button,
+  .stbui-raised-button {
+    margin: 0 4px;
+  }
+}
+
+// HEADER STYLES
+
+.stbui-card-header {
+  display: flex;
+  flex-direction: row;
+}
+
+.stbui-card-header-text {
+  margin: 0 8px;
+}
+
+.stbui-card-avatar {
+  height: $stbui-card-header-size;
+  width: $stbui-card-header-size;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+// TITLE-GROUP STYLES
+
+// images grouped with title in title-group layout
+%stbui-card-title-img {
+  margin: -8px 0;
+}
+
+.stbui-card-title-group {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 -8px;
+}
+
+.stbui-card-sm-image {
+  @extend %stbui-card-title-img;
+  width: 80px;
+  height: 80px;
+}
+
+.stbui-card-md-image {
+  @extend %stbui-card-title-img;
+  width: 112px;
+  height: 112px;
+}
+
+.stbui-card-lg-image {
+  @extend %stbui-card-title-img;
+  width: 152px;
+  height: 152px;
+}
+
+// MEDIA QUERIES
+
+@media ($stbui-xsmall) {
+  .stbui-card {
+    padding: $stbui-card-mobile-padding;
+  }
+
+  .stbui-card-actions {
+    margin-left: -8px;
+    margin-right: -8px;
+  }
+
+  .stbui-card-image {
+    width: calc(100% + 32px);
+    margin: 16px -16px;
+  }
+
+  .stbui-card-title-group {
+    margin: 0;
+  }
+
+  .stbui-card-xl-image {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .stbui-card-header {
+    margin: -8px 0 0 0;
+  }
+
+  .stbui-card-footer {
+    margin-left: -16px;
+    margin-right: -16px;
+  }
+}
+
+// FIRST/LAST CHILD ADJUSTMENTS
+
+// top els in stbui-card-content and stbui-card can't have their default margin-tops (e.g. <p> tags)
+// or they'll incorrectly add to card's top padding
+.stbui-card > :first-child,
+.stbui-card-content > :first-child {
+  margin-top: 0;
+}
+
+// last els in stbui-card-content and stbui-card can't have their default margin-bottoms (e.g. <p> tags)
+// or they'll incorrectly add to card's bottom padding
+.stbui-card > :last-child:not(.stbui-card-footer),
+.stbui-card-content > :last-child:not(.stbui-card-footer) {
+  margin-bottom: 0;
+}
+
+// if main image is on top, need to place it flush against top
+// (by stripping card's default 24px padding)
+.stbui-card-image:first-child {
+  margin-top: -24px;
+}
+
+// actions panel on bottom should be 8px from bottom of card
+// so must strip 16px from default card padding of 24px
+.stbui-card > .stbui-card-actions:last-child {
+  margin-bottom: -16px;
+  padding-bottom: 0;
+}
+
+// actions panel should always be 8px from sides,
+// so the first button in the actions panel can't add its own margins
+.stbui-card-actions .stbui-button:first-child,
+.stbui-card-actions .stbui-raised-button:first-child {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+// should be 12px space between titles and subtitles generally
+// default margin-bottom is 16px, so need to move lower title up 4px
+.stbui-card-title:not(:first-child),
+.stbui-card-subtitle:not(:first-child) {
+  margin-top: -4px;
+}
+
+// should be 8px space between titles and subtitles in header
+// default margin-bottom is 16px, so need to move subtitle in header up 4px
+.stbui-card-header .stbui-card-subtitle:not(:first-child) {
+  margin-top: -8px;
+}
+
+// xl image should always have 16px on top.
+// when it's the first el, it'll need to remove 8px from default card padding of 24px
+.stbui-card > .stbui-card-xl-image:first-child {
+  margin-top: -8px;
+}
+
+// xl image should always have 16px on bottom
+// when it's the last el, it'll need to remove 8px from default card padding of 24px
+.stbui-card > .stbui-card-xl-image:last-child {
+  margin-bottom: -8px;
+}
+
+// $card-prefix-cls: 'stbui-card';
+
+// .#{$card-prefix-cls} {
+//   background-color: #fff;
+//   position: relative;
+//   border-radius: 2px;
+//   box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14),
+//     0 1px 3px 0 rgba(0, 0, 0, 0.12);
+
+//   &-media {
+//     position: relative;
+//   }
+
+//   &-text {
+//     padding: 16px;
+//     font-size: 14px;
+//     color: rgba(0, 0, 0, 0.87);
+//   }
+
+//   &-title {
+//     align-items: center;
+//     display: flex;
+//     flex-wrap: wrap;
+//     padding: 16px;
+//   }
+
+//   &-actions {
+//     padding: 8px;
+//     position: relative;
+//   }
+// }

@@ -1,0 +1,26 @@
+$list-prefix-cls: 'stbui-list';
+
+.#{$list-prefix-cls} {
+  list-style: none;
+  padding: 8px 0;
+
+  &-item {
+    user-select: none;
+  }
+
+  &-title {
+    display: flex;
+    align-items: center;
+    padding-left: 16px;
+    padding-right: 16px;
+    text-decoration: none;
+    transition-duration: 0.15s;
+    height: 40px;
+    color: #212121;
+
+    &:hover {
+      text-decoration: none;
+      background-color: rgba(0, 0, 0, 0.08);
+    }
+  }
+}
