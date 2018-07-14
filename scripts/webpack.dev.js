@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HappyPack = require('HappyPack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpackBase = require('./webpack.base');
 
 module.exports = {
@@ -14,6 +15,10 @@ module.exports = {
       title: 'stbui',
       hash: true,
       template: path.resolve('./src/docs/index.html')
+    }),
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+      chunkFilename: '[id].css',
     }),
     new HappyPack({
       id: 'ts',

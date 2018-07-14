@@ -1,11 +1,11 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import Header from './components/Header';
+import App from './components/App';
 import './styles';
 
 export default class Index extends React.Component {
   render() {
-    return <Header />;
+    return <App />;
   }
 }
 
