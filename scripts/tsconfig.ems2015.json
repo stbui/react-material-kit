@@ -1,0 +1,15 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "baseUrl": "../src",
+    "sourceRoot": "../src",
+    "paths": {},
+    "module": "es2015",
+    "importHelpers": true,
+    "moduleResolution": "node",
+    "target": "es2015",
+    "outDir": "../dist/es2015"
+  },
+  "files": ["../src/components/index.tsx"]
+}

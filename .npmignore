@@ -1,0 +1,8 @@
+*.log
+.DS_Store
+.idea
+.vscode
+.gitignore
+dist
+node_modules
+site

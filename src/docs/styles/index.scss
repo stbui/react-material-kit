@@ -1,0 +1,31 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+::selection {
+  background-color: #b3d4fc;
+  color: #000;
+  text-shadow: none;
+}
+
+body {
+  font-family: Roboto, sans-serif;
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+a {
+  background: transparent;
+  text-decoration: none;
+  outline: none;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}

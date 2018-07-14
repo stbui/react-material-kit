@@ -1,0 +1,13 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "baseUrl": "../src",
+    "sourceRoot": "../src",
+    "paths": {},
+    "module": "commonjs",
+    "target": "es5",
+    "outDir": "../dist/cjs"
+  },
+  "files": ["../src/components/index.tsx"]
+}
