@@ -12,6 +12,7 @@
     "compile:ems5": "tsc -p ./scripts/tsconfig.ems5.json",
     "compile:umd": "webpack --config ./scripts/webpack.umd.js",
     "build:site": "webpack --config scripts/webpack.site.js",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "clean": "rm -rf dist site"
   },
   "author": "stbui",
@@ -32,6 +33,10 @@
     "framework",
     "frontend"
   ],
+  "peerDependencies": {
+    "react": ">=16.0.0",
+    "react-dom": ">=16.0.0"
+  },
   "dependencies": {
     "react": "^16.4.1",
     "react-dom": "^16.4.1"
@@ -39,7 +44,6 @@
   "devDependencies": {
     "@types/react": "^16.4.6",
     "@types/react-dom": "^16.0.6",
-    "conventional-changelog-cli": "^2.0.1",
     "css-loader": "^1.0.0",
     "happypack": "^5.0.0",
     "html-webpack-plugin": "^3.2.0",
