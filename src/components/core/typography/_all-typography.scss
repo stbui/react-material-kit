@@ -1,0 +1,81 @@
+@import './typography';
+@import '../../autocomplete/autocomplete-theme';
+@import '../../badge/badge-theme';
+@import '../../bottom-sheet/bottom-sheet-theme';
+@import '../../button/button-theme';
+@import '../../button-toggle/button-toggle-theme';
+@import '../../card/card-theme';
+@import '../../checkbox/checkbox-theme';
+@import '../../chips/chips-theme';
+@import '../../table/table-theme';
+@import '../../datepicker/datepicker-theme';
+@import '../../dialog/dialog-theme';
+@import '../../expansion/expansion-theme';
+@import '../../grid-list/grid-list-theme';
+@import '../../icon/icon-theme';
+@import '../../input/input-theme';
+@import '../../list/list-theme';
+@import '../../menu/menu-theme';
+@import '../../paginator/paginator-theme';
+@import '../../progress-bar/progress-bar-theme';
+@import '../../progress-spinner/progress-spinner-theme';
+@import '../../radio/radio-theme';
+@import '../../select/select-theme';
+@import '../../sidenav/sidenav-theme';
+@import '../../slide-toggle/slide-toggle-theme';
+@import '../../slider/slider-theme';
+@import '../../stepper/stepper-theme';
+@import '../../sort/sort-theme';
+@import '../../tabs/tabs-theme';
+@import '../../toolbar/toolbar-theme';
+@import '../../tooltip/tooltip-theme';
+@import '../../snack-bar/snack-bar-theme';
+@import '../option/option-theme';
+@import '../option/optgroup-theme';
+@import '../../form-field/form-field-theme';
+@import '../../tree/tree-theme';
+
+
+// Includes all of the typographic styles.
+@mixin angular-material-typography($config: null) {
+  @if $config == null {
+    $config: stbui-typography-config();
+  }
+
+  @include stbui-badge-typography($config);
+  @include stbui-base-typography($config);
+  @include stbui-autocomplete-typography($config);
+  @include stbui-bottom-sheet-typography($config);
+  @include stbui-button-typography($config);
+  @include stbui-button-toggle-typography($config);
+  @include stbui-card-typography($config);
+  @include stbui-checkbox-typography($config);
+  @include stbui-chips-typography($config);
+  @include stbui-table-typography($config);
+  @include stbui-datepicker-typography($config);
+  @include stbui-dialog-typography($config);
+  @include stbui-expansion-panel-typography($config);
+  @include stbui-form-field-typography($config);
+  @include stbui-grid-list-typography($config);
+  @include stbui-icon-typography($config);
+  @include stbui-input-typography($config);
+  @include stbui-menu-typography($config);
+  @include stbui-paginator-typography($config);
+  @include stbui-progress-bar-typography($config);
+  @include stbui-progress-spinner-typography($config);
+  @include stbui-radio-typography($config);
+  @include stbui-select-typography($config);
+  @include stbui-sidenav-typography($config);
+  @include stbui-slide-toggle-typography($config);
+  @include stbui-slider-typography($config);
+  @include stbui-stepper-typography($config);
+  @include stbui-sort-typography($config);
+  @include stbui-tabs-typography($config);
+  @include stbui-toolbar-typography($config);
+  @include stbui-tooltip-typography($config);
+  @include stbui-list-typography($config);
+  @include stbui-option-typography($config);
+  @include stbui-optgroup-typography($config);
+  @include stbui-snack-bar-typography($config);
+  @include stbui-tree-typography($config);
+}
