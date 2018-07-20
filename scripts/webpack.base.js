@@ -6,7 +6,7 @@ module.exports = {
     path: path.resolve(__dirname, '../site'),
     filename: '[name].[chunkhash:8].js',
     chunkFilename: '[name].[chunkhash:8].js',
-    publicPath: '/'
+    publicPath: ''
   },
   resolve: {
     extensions: [' ', '.ts', '.tsx', '.js', '.jsx', '.scss']
