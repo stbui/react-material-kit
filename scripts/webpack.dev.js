@@ -12,7 +12,7 @@ module.exports = {
   entry: './src/docs/index.tsx',
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'stbui',
+      title: 'React Material Kit - Power by stbui',
       hash: true,
       template: path.resolve('./src/docs/index.html')
     }),
