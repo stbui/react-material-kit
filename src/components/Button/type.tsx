@@ -13,3 +13,16 @@ export default interface PropsType {
   icon?: boolean;
   fab?: boolean;
 }
+
+export type Props = Partial<{
+  prefixCls: string;
+  className: string;
+  raised: boolean;
+  stroked: boolean;
+  icon: boolean;
+  fab: boolean;
+}>;
+
+export type State = {
+  isReverse?: boolean;
+};

@@ -8,5 +8,6 @@
 export default interface PropsType {
   prefixCls?: string;
   className?: string;
+  centerMode?: boolean;
+  hidden?: boolean;
 }
-  

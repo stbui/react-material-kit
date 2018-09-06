@@ -7,9 +7,10 @@
 
 import React, { Component } from 'react';
 import classnames from 'classnames';
-import PropsType from './PropsType';
+import { Ripple } from '../Ripple';
+import { Props, State } from './type';
 
-export class Button extends Component<PropsType, any> {
+export class Button extends Component<Props, State> {
   static defaultProps = {
     prefixCls: 'stbui-button',
     raised: false,
@@ -31,13 +32,19 @@ export class Button extends Component<PropsType, any> {
     } = this.props;
     const cls = classnames(
       prefixCls,
-      [{ 'stbui-raised-button': raised }, { 'stbui-stroked-button': stroked }, { 'stbui-icon-button': icon }, { 'stbui-fab-button': fab }],
+      [
+        { 'stbui-raised-button': raised },
+        { 'stbui-stroked-button': stroked },
+        { 'stbui-icon-button': icon },
+        { 'stbui-fab-button': fab }
+      ],
       className
     );
 
     return (
       <button className={cls} {...otherProps}>
         {children}
+        <Ripple />
       </button>
     );
   }
