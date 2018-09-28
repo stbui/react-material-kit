@@ -1,10 +1,4 @@
 @import 'button-base';
-@import '../core/style/layout-common';
-
-// TODO(jelbourn): Measure perf benefits for translate3d and will-change.
-// TODO(jelbourn): Figure out if anchor hover underline actually happens in any browser.
-@import 'button-base';
-@import '../core/style/layout-common';
 
 .stbui-button,
 .stbui-icon-button,
@@ -15,17 +9,10 @@
 
 .stbui-button,
 .stbui-icon-button {
-  .stbui-button-focus-overlay {
-    transition: none;
-    opacity: 0;
+  &:hover {
+    background-color: rgba(black, 0.12);
+    transition: $stbui-button-focus-transition;
   }
-}
-
-// Only flat and stroked buttons (not raised, FABs or icon buttons) have a hover style.
-// Use the same visual treatment for hover as for focus.
-.stbui-button:hover .stbui-button-focus-overlay,
-.stbui-stroked-button:hover .stbui-button-focus-overlay {
-  opacity: 1;
 }
 
 .stbui-raised-button {
@@ -44,11 +31,11 @@
   @include stbui-overridable-elevation(0);
 }
 
-.stbui-fab {
+.stbui-fab-button {
   @include stbui-fab($stbui-fab-size, $stbui-fab-padding);
 }
 
-.stbui-mini-fab {
+.stbui-mini-fab-button {
   @include stbui-fab($stbui-mini-fab-size, $stbui-mini-fab-padding);
 }
 
@@ -72,113 +59,80 @@
   }
 }
 
-// The ripple container should stbuich the bounds of the entire button.
-.stbui-button-ripple,
-.stbui-button-focus-overlay {
-  @include stbui-fill;
-
-  // Disable pointer events for the ripple container and focus overlay because the container
-  // will overlay the user content and we don't want to disable mouse events on the user content.
-  // Pointer events can be safely disabled because the ripple trigger element is the host element.
-  pointer-events: none;
-
-  // Inherit the border radius from the parent so the ripple is clipped when it reaches the edges.
-  border-radius: inherit;
-}
-
-// Element that overlays the button to show focus and hover effects.
-.stbui-button-focus-overlay {
-  // The button spec calls for focus on raised buttons (and FABs) to be indicated with a
-  // black, 12% opacity shade over the normal color (for both light and dark themes).
-  background-color: rgba(black, 0.12);
-  border-radius: inherit;
-  opacity: 0;
-
-  transition: $stbui-button-focus-transition;
-
-  ._stbui-anistbuiion-noopable & {
-    transition: none;
-  }
-
-  // @include cdk-high-contrast {
-  //   // Note that IE will render this in the same way, no
-  //   // stbuiter whether the theme is light or dark. This helps
-  //   // with the readability of focused buttons.
-  //   background-color: rgba(white, 0.5);
-  // }
-}
-
-// For round buttons, the ripple container should clip child ripples to a circle.
-.stbui-button-ripple-round {
-  border-radius: 50%;
-  // z-index needed to make clipping to border-radius work correctly.
-  // http://stackoverflow.com/questions/20001515/
-  z-index: 1;
-}
-
-// Elements inside of all type of buttons should be vertical aligned in the middle.
 .stbui-button,
 .stbui-flat-button,
 .stbui-stroked-button,
 .stbui-raised-button,
 .stbui-icon-button,
-.stbui-fab,
-.stbui-mini-fab {
-  .stbui-button-wrapper > * {
-    vertical-align: middle;
+.stbui-fab-button,
+.stbui-mini-fab-button {
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+// primary
+.stbui-button.stbui-button-primary {
+  color: #3f51b5;
+  &:hover {
+    background-color: rgba(#3f51b5, 0.12);
   }
 }
 
-// Align icon-buttons correctly inside of standard, fill, and outline form-field appearances.
-.stbui-form-field:not(.stbui-form-field-appearance-legacy) {
-  .stbui-form-field-prefix,
-  .stbui-form-field-suffix {
-    .stbui-icon-button {
-      display: block;
-      font-size: inherit;
-      width: 2.5em;
-      height: 2.5em;
-    }
+.stbui-raised-button.stbui-button-primary {
+  color: #fff;
+  background: #3f51b5;
+}
+
+.stbui-stroked-button.stbui-button-primary {
+  color: #3f51b5;
+}
+
+.stbui-fab-button.stbui-button-primary {
+  color: #fff;
+  background: #3f51b5;
+}
+
+// accent
+.stbui-button.stbui-button-accent {
+  color: #ff4081;
+  &:hover {
+    background-color: rgba(#ff4081, 0.12);
   }
 }
 
-// Add an outline to make buttons more visible in high contrast mode. Stroked buttons
-// don't need a special look in high-contrast mode, because those already have an outline.
-// @include cdk-high-contrast {
-//   .stbui-button,
-//   .stbui-flat-button,
-//   .stbui-raised-button,
-//   .stbui-icon-button,
-//   .stbui-fab,
-//   .stbui-mini-fab {
-//     outline: solid 1px;
-//   }
-// }
+.stbui-raised-button.stbui-button-accent {
+  color: #fff;
+  background: #ff4081;
+}
 
-// $card-prefix-cls: 'stbui-button';
+.stbui-stroked-button.stbui-button-accent {
+  color: #ff4081;
+}
 
-// .#{$card-prefix-cls} {
-//   align-items: center;
-//   border-radius: 2px;
-//   display: inline-flex;
-//   height: 36px;
-//   flex: 0 1 auto;
-//   font-size: 14px;
-//   font-weight: 500;
-//   justify-content: center;
-//   margin: 6px 8px;
-//   min-width: 88px;
-//   outline: 0;
-//   text-transform: uppercase;
-//   text-decoration: none;
-//   transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1), color 1ms;
-//   position: relative;
-//   vertical-align: middle;
-//   user-select: none;
+.stbui-fab-button.stbui-button-accent {
+  color: #fff;
+  background: #ff4081;
+}
 
-//   background-color: #1867c0;
-//   border-color: #1867c0;
-//   color: #fff;
-//   box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
-//     0 1px 5px 0 rgba(0, 0, 0, 0.12);
-// }
+// warn
+.stbui-button.stbui-button-warn {
+  color: #f44336;
+  &:hover {
+    background-color: rgba(#f44336, 0.12);
+  }
+}
+
+.stbui-raised-button.stbui-button-warn {
+  color: #fff;
+  background: #f44336;
+}
+
+.stbui-stroked-button.stbui-button-warn {
+  color: #f44336;
+}
+
+.stbui-fab-button.stbui-button-warn {
+  color: #fff;
+  background: #f44336;
+}

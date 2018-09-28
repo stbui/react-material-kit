@@ -13,10 +13,25 @@ class Demo extends React.Component {
   render() {
     return (
       <div>
-        <Button>button</Button>
-        <Button raised>button</Button>
-        <Button stroked>button</Button>
-        <Button fab>button</Button>
+        <Button>base</Button>
+        <Button color="primary">primary</Button>
+        <Button color="accent">accent</Button>
+        <Button color="warn">warn</Button>
+        <br />
+        <Button raised>raised</Button>
+        <Button raised color="primary">primary</Button>
+        <Button raised color="accent">accent</Button>
+        <Button raised color="warn">warn</Button>
+        <br />
+        <Button stroked>stroked</Button>
+        <Button stroked color="primary">primary</Button>
+        <Button stroked color="accent">accent</Button>
+        <Button stroked color="warn">warn</Button>
+        <br />
+        <Button fab>fab</Button>
+        <Button fab color="primary">primary</Button>
+        <Button fab color="accent">accent</Button>
+        <Button fab color="warn">warn</Button>
       </div>
     );
   }

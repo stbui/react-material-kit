@@ -21,6 +21,8 @@ export type Props = Partial<{
   stroked: boolean;
   icon: boolean;
   fab: boolean;
+  disabled: boolean;
+  color: 'primary' | 'accent' | 'warn';
 }>;
 
 export type State = {

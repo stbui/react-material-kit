@@ -16,7 +16,8 @@ export class Button extends Component<Props, State> {
     raised: false,
     stroked: false,
     icon: false,
-    fab: false
+    fab: false,
+    disabled: true
   };
 
   render() {
@@ -27,19 +28,20 @@ export class Button extends Component<Props, State> {
       fab,
       prefixCls,
       className,
+      disabled,
+      color,
       children,
       ...otherProps
     } = this.props;
-    const cls = classnames(
-      prefixCls,
-      [
-        { 'stbui-raised-button': raised },
-        { 'stbui-stroked-button': stroked },
-        { 'stbui-icon-button': icon },
-        { 'stbui-fab-button': fab }
-      ],
-      className
-    );
+    const cls = classnames({
+      [prefixCls]: true && !raised && !stroked && !stroked && !icon && !fab,
+      'stbui-raised-button': raised,
+      'stbui-stroked-button': stroked,
+      'stbui-icon-button': icon,
+      'stbui-fab-button': fab,
+      [className!]: !!className,
+      [`stbui-button-${color}`]: !!color
+    });
 
     return (
       <button className={cls} {...otherProps}>
