@@ -103,13 +103,13 @@ export class Ripple extends Component<PropsType, any> {
     element.style.top = y + 'px';
     element.style.left = x + 'px';
 
-    element.classList.add('test');
+    element.classList.add(`${prefixCls!}-Effect`);
   };
 
   handleTouchStart = (event: MouseEvent) => {
     const { prefixCls } = this.props;
     const children: any = [...this.state.children!];
-
+    children.push(this.getUuid());
     this.setState({ children }, () => {
       const activeIndex = children.length - 1;
       const rippleChild = this.rippleNode.querySelectorAll(`.${prefixCls!}`);
@@ -129,17 +129,24 @@ export class Ripple extends Component<PropsType, any> {
   };
 
   render() {
-    const { children, prefixCls, className, ...otherProps } = this.props;
+    const { children, prefixCls, className, hidden } = this.props;
     const cls = classnames(prefixCls, className);
+    const elementCls = classnames(`${prefixCls}-element`, {
+      [`${prefixCls}-hidden`]: hidden
+    });
+    const styles = {
+      backgroundColor: this.props.rippleColor!
+    };
 
     return (
-      <div className={cls} ref={this.getRef}>
+      <div className={elementCls} ref={this.getRef}>
         {this.state.children.map(child => {
           return (
             <div
               key={child}
+              className={cls}
+              style={styles}
               onAnimationEnd={() => this.handleAnimationEnd(child)}
-              {...otherProps}
             >
               {children}
             </div>

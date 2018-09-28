@@ -9,5 +9,6 @@ export default interface PropsType {
   prefixCls?: string;
   className?: string;
   centerMode?: boolean;
+  rippleColor?: string;
   hidden?: boolean;
 }
