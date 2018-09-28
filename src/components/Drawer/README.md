@@ -15,21 +15,21 @@ class Demo extends React.Component {
     this.state = {
       active: false
     };
-
-    this.handleDrawerClick.bind(this);
-  }
-
-  handleDrawerClick() {
-    this.setState({ active: !this.state.active });
   }
 
   render() {
     return (
       <div>
-        <Button onClick={this.handleDrawerClick}>open drawer</Button>
+        <Button
+          onClick={() => {
+            this.setState({ active: !this.state.active });
+          }}
+        >
+          open drawer
+        </Button>
         <Drawer active={this.state.active}>drawer show</Drawer>
         <Drawer active={true} position="end">
-          drawer show
+          right
         </Drawer>
       </div>
     );

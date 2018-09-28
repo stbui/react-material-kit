@@ -36,6 +36,42 @@ export default class App extends React.Component {
             <ListItem component="a" href="#/components/divider">
               Divider
             </ListItem>
+            <Divider />
+            <ListItem component="a" href="#/components/badge">
+              Badge
+            </ListItem>
+            <Divider />
+            <ListItem component="a" href="#/components/checkbox">
+              Checkbox
+            </ListItem>
+            <Divider />
+            <ListItem component="a" href="#/components/dialog">
+              Dialog
+            </ListItem>
+            <Divider />
+            <ListItem component="a" href="#/components/input">
+              Input
+            </ListItem>
+            <Divider />
+            <ListItem component="a" href="#/components/menu">
+              Menu
+            </ListItem>
+            <Divider />
+            <ListItem component="a" href="#/components/paginator">
+              Paginator
+            </ListItem>
+            <Divider />
+            <ListItem component="a" href="#/components/select">
+              Select
+            </ListItem>
+            <Divider />
+            <ListItem component="a" href="#/components/radio">
+              Radio
+            </ListItem>
+            <Divider />
+            <ListItem component="a" href="#/components/tabs">
+              Tabs
+            </ListItem>
           </List>
         </Drawer>
         <div style={{ marginLeft: 256, padding: 24 }}>
@@ -86,6 +122,73 @@ export default class App extends React.Component {
                 <Markdown
                   text={require(`../../components/divider/README.md`)}
                 />
+              )}
+            />
+            <Route
+              exact
+              path="/components/badge"
+              component={() => (
+                <Markdown text={require(`../../components/badge/README.md`)} />
+              )}
+            />
+            <Route
+              exact
+              path="/components/checkbox"
+              component={() => (
+                <Markdown
+                  text={require(`../../components/checkbox/README.md`)}
+                />
+              )}
+            />
+            <Route
+              exact
+              path="/components/input"
+              component={() => (
+                <Markdown text={require(`../../components/input/README.md`)} />
+              )}
+            />
+            <Route
+              exact
+              path="/components/dialog"
+              component={() => (
+                <Markdown text={require(`../../components/dialog/README.md`)} />
+              )}
+            />
+            <Route
+              exact
+              path="/components/menu"
+              component={() => (
+                <Markdown text={require(`../../components/menu/README.md`)} />
+              )}
+            />
+            <Route
+              exact
+              path="/components/paginator"
+              component={() => (
+                <Markdown
+                  text={require(`../../components/paginator/README.md`)}
+                />
+              )}
+            />
+            <Route
+              exact
+              path="/components/select"
+              component={() => (
+                <Markdown text={require(`../../components/select/README.md`)} />
+              )}
+            />
+            <Route
+              exact
+              path="/components/radio"
+              component={() => (
+                <Markdown text={require(`../../components/radio/README.md`)} />
+              )}
+            />
+            <Route
+              exact
+              path="/components/tabs"
+              component={() => (
+                <Markdown text={require(`../../components/tabs/README.md`)} />
               )}
             />
           </Switch>
