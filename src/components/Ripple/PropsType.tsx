@@ -11,4 +11,5 @@ export default interface PropsType {
   centerMode?: boolean;
   rippleColor?: string;
   hidden?: boolean;
+  size?: any;
 }

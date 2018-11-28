@@ -19,11 +19,8 @@ export class Badge extends Component<PropsType, any> {
     const cls = classnames(prefixCls, className);
 
     return (
-      <div
-        className={cls}
-        {...otherProps}
-      >
-      Badge
+      <div className={cls} {...otherProps}>
+        Badge
       </div>
     );
   }
