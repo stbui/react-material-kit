@@ -1,0 +1,31 @@
+{
+  "name": "tooltip",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "stbui <w431106@163.com>",
+  "homepage": "https://github.com/stbui/react-material-kit#readme",
+  "license": "ISC",
+  "main": "lib/index",
+  "module": "esm/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stbui/react-material-kit.git"
+  },
+  "scripts": {
+    "build": "npm run build:cjs && npm run build:esm",
+    "build:cjs": "rm -rf ./lib && tsc",
+    "build:esm": "rm -rf ./esm && tsc --outDir esm --module es2015",
+    "watch": "tsc --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/stbui/react-material-kit/issues"
+  }
+}
