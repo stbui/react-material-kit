@@ -11,12 +11,24 @@ import PropsType from './PropsType';
 
 export class Card extends Component<PropsType, any> {
   static defaultProps = {
-    prefixCls: 'stbui-card'
+    prefixCls: 'mdc-card'
   };
 
   render() {
-    const { prefixCls, className, children, ...otherProps } = this.props;
-    const cls = classnames(prefixCls, className);
+    const {
+      prefixCls,
+      outlined,
+      className,
+      children,
+      ...otherProps
+    } = this.props;
+    const cls = classnames(
+      prefixCls,
+      {
+        'mdc-card--outlined': outlined
+      },
+      className
+    );
 
     return (
       <div className={cls} {...otherProps}>

@@ -6,6 +6,8 @@
   "module": "dist/es2015/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
+    "postinstall": "lerna bootstrap",
+    "build": "lerna run build",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "new": "node scripts/new.component.js",
     "start:docs": "cd ./docs && npm run start",
@@ -38,6 +40,7 @@
     "marked": "^0.5.2",
     "prismjs": "^1.15.0",
     "react": "^16.6.3",
+    "react-docgen": "^3.0.0",
     "react-dom": "^16.6.3",
     "react-markdown": "^4.0.3"
   },

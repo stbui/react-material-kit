@@ -1,0 +1,49 @@
+{
+  "description": "",
+  "displayName": "Button",
+  "methods": [],
+  "props": {
+    "prefixCls": {
+      "defaultValue": {
+        "value": "'stbui-button'",
+        "computed": false
+      },
+      "required": false
+    },
+    "raised": {
+      "defaultValue": {
+        "value": "false",
+        "computed": false
+      },
+      "required": false
+    },
+    "stroked": {
+      "defaultValue": {
+        "value": "false",
+        "computed": false
+      },
+      "required": false
+    },
+    "icon": {
+      "defaultValue": {
+        "value": "false",
+        "computed": false
+      },
+      "required": false
+    },
+    "fab": {
+      "defaultValue": {
+        "value": "false",
+        "computed": false
+      },
+      "required": false
+    },
+    "disabled": {
+      "defaultValue": {
+        "value": "true",
+        "computed": false
+      },
+      "required": false
+    }
+  }
+}

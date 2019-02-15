@@ -5,22 +5,15 @@
  * https://github.com/stbui
  */
 
-export default interface PropsType {
-  prefixCls?: string;
-  className?: string;
-  raised?: boolean;
-  stroked?: boolean;
-  icon?: boolean;
-  fab?: boolean;
-}
-
 export type Props = Partial<{
   prefixCls: any;
   className: string;
   raised: boolean;
-  stroked: boolean;
+  unelevated: boolean;
+  outlined: boolean;
+  dense: boolean;
+  label: boolean;
   icon: boolean;
-  fab: boolean;
   disabled: boolean;
   color: 'primary' | 'accent' | 'warn';
 }>;

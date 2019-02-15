@@ -7,25 +7,25 @@
 
 import React, { Component } from 'react';
 import classnames from 'classnames';
-// import { Ripple } from '../Ripple';
 import { Props, State } from './type';
 
 export class Button extends Component<Props, State> {
   static defaultProps = {
     prefixCls: 'stbui-button',
     raised: false,
-    stroked: false,
-    icon: false,
-    fab: false,
-    disabled: true
+    unelevated: false,
+    outlined: false,
+    dense: false
   };
 
   render() {
     const {
       raised,
-      stroked,
+      unelevated,
+      outlined,
+      dense,
+      label,
       icon,
-      fab,
       prefixCls,
       className,
       disabled,
@@ -33,20 +33,18 @@ export class Button extends Component<Props, State> {
       children,
       ...otherProps
     } = this.props;
-    const cls = classnames({
-      [prefixCls]: true && !raised && !stroked && !stroked && !icon && !fab,
-      'stbui-raised-button': raised,
-      'stbui-stroked-button': stroked,
-      'stbui-icon-button': icon,
-      'stbui-fab-button': fab,
-      [className!]: !!className,
-      [`stbui-button-${color}`]: !!color
+    const cls = classnames('mdc-button', {
+      'mdc-button--raised': raised,
+      'mdc-button--unelevated': unelevated,
+      'mdc-button--outlined': outlined,
+      'mdc-button--dense': dense,
+      'mdc-button__label': label,
+      'mdc-button__icon': icon
     });
 
     return (
       <button className={cls} {...otherProps}>
-        {children}
-        {/* <Ripple /> */}
+        <span className="mdc-button__label">{children}</span>
       </button>
     );
   }

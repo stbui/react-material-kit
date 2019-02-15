@@ -27,5 +27,8 @@
   },
   "bugs": {
     "url": "https://github.com/stbui/react-material-kit/issues"
+  },
+  "dependencies": {
+    "@material/card": "~0.44.0"
   }
 }

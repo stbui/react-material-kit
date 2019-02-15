@@ -15,7 +15,11 @@ export class CardActions extends Component<any, any> {
 
   render() {
     const { prefixCls, className, children, ...otherProps } = this.props;
-    const cls = classnames(`${prefixCls}-actions`, className);
+    const cls = classnames(
+      'mdc-card__actions',
+      { 'mdc-card__actions--full-bleed': false },
+      className
+    );
 
     return (
       <div className={cls} {...otherProps}>

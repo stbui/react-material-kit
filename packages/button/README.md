@@ -1,5 +1,7 @@
 # Button
 
+npx react-docgen ./packages/button/src/button.tsx -o ./packages/button/src/docgen.json --pretty
+
 # 示例
 
 ### 基本用法

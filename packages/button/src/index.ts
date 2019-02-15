@@ -5,4 +5,4 @@
  * https://github.com/stbui
  */
 
-export * from './public_api';
+export * from './button';
